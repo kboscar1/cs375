@@ -44,12 +44,12 @@ class MinHeap{
 		int size;
 		int maxSize;
 		int * pos;
-		MinheapNode ** array;
+		MinHeapNode ** array;
 		MinHeap(int aMaxSize){
 			maxSize = aMaxSize;
 			size = 0;
-			pos = (int *)malloc(capacity * sizeof(int));
-			array = malloc(capacity * sizeof(struct MinHeapNode*));
+			pos = (int *)malloc(maxSize * sizeof(int));
+			array = malloc(maxSize * sizeof(struct MinHeapNode*));
 		}
 		MinHeapNode * createNewMinHeapNode(int v, int dist){
 			MinHeapNode * minHeapNode = new MinHeapNode(v,dist);
@@ -60,19 +60,19 @@ class MinHeap{
 			*n1 = *n2;
 			*n2 = temp;
 		}
-		void heapify(MinHeap * minHeap, int index){
+		void heapify(int index){
 			int smallest = index;
 			int left = (2*index) + 1;
 			int right = (2*index) + 2;
-			if(left < minHeap->size && minHeap->array[left]->dist < minHeap->array[smallest]->dist ) smallest = left;
-			if(right < minHeap->size && minHeap->array[right]->dist < minHeap->array[smallest]->dist) smallest = right;
+			if(left < size && array[left]->dist < array[smallest]->dist ) smallest = left;
+			if(right < size &&  array[right]->dist <  array[smallest]->dist) smallest = right;
 			if(smallest != index){
-				MinHeapNode *smallestNode = minHeap->array[smallest];
-				MinHeapNode * retNode = minHeap->array[idex];
+				MinHeapNode *smallestNode =  array[smallest];
+				MinHeapNode * retNode =  array[idex];
 				pos[smallestNode->v] = index;
 				pos[retNode->v] = smallest;
-				swapMinHeapNode(&minHeap->array[smallest], &minHeap->array[idex]);
-				heapify(minHeap, smallest);
+				swapMinHeapNode(&array[smallest], &array[idex]);
+				heapify(smallest);
 			}
 		}
 		bool isEmpty(){

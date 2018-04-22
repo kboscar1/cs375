@@ -131,26 +131,26 @@ for (int v = 0; v < num_nodes; ++v){
 	PQ->array[v] = PQ->createNewMinHeapNode(v, dist[v]);
 	PQ->pos[v] = v;
 }
-    
+
+
+ PQ->array[src]->v   = src;
+ PQ->array[src]->dist = 0;
+ PQ->pos[src] = src;
+ dist[src] = 0;
+ PQ->decreaseKey(src, dist[src]);
+ 
+ 
+ PQ->size = num_nodes;
   
  while(!PQ->isEmpty()){
-	MinHeapNode * PQNode = PQ->popMin();
-        int min_index = PQNode->v;
-  
-	PQ->array[src]->v   = src;
-	PQ->array[src]->dist = 0;
-	PQ->pos[src] = src;
-	dist[src] = 0;
-
-	PQ->size = num_nodes;
-
-	PQ->decreaseKey(src, dist[src]);
+   MinHeapNode * PQNode = PQ->popMin();
+   int min_index = PQNode->v;       
 
     // 'i' is used to get all adjacent vertices of a vertex
     list< pair<int, int> >::iterator i;
       for (i = adj[min_index].begin(); i != adj[min_index].end(); i++)
 	{
-
+	  
 	  // Get vertex label and weight of current adjacent
 	  // of u.
 	  int v = (*i).first;
@@ -163,13 +163,13 @@ for (int v = 0; v < num_nodes; ++v){
 	      dist[v] = dist[min_index] + weight;
 	      PQ->decreaseKey(v, dist[v]);
 	    }
-	}
+	}      
  }
 
   // Print shortest distances stored in dist[]
   printf("vertex   Distance from Source\n");
   for (int i = 0; i < num_nodes; i++){
-    printf("%d \t\t %d\n", i, PQ[i]);
+    printf("%d \t\t %d\n", i, dist[i]);
   }
   
   return;

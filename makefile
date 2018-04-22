@@ -1,4 +1,4 @@
-all: PQ
+all: PQ minHeap
 
 PQ: pq.o timer.o
 	g++ pq.o timer.o -o pq

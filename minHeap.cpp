@@ -49,7 +49,7 @@ class MinHeap{
 			maxSize = aMaxSize;
 			size = 0;
 			pos = (int *)malloc(maxSize * sizeof(int));
-			array = malloc(maxSize * sizeof(struct MinHeapNode*));
+			array = (MinHeapNode **)malloc(maxSize * sizeof(struct MinHeapNode*));
 		}
 		MinHeapNode * createNewMinHeapNode(int v, int dist){
 			MinHeapNode * minHeapNode = new MinHeapNode(v,dist);
@@ -68,10 +68,10 @@ class MinHeap{
 			if(right < size &&  array[right]->dist <  array[smallest]->dist) smallest = right;
 			if(smallest != index){
 				MinHeapNode *smallestNode =  array[smallest];
-				MinHeapNode * retNode =  array[idex];
+				MinHeapNode * retNode =  array[index];
 				pos[smallestNode->v] = index;
 				pos[retNode->v] = smallest;
-				swapMinHeapNode(&array[smallest], &array[idex]);
+				swap(&array[smallest], &array[index]);
 				heapify(smallest);
 			}
 		}
@@ -79,14 +79,14 @@ class MinHeap{
 			return size == 0;
 		}
 		MinHeapNode * popMin(){
-			if(isEmpty) return NULL;
+		  if(isEmpty()) return NULL;
 			MinHeapNode * root = array[0];
 			MinHeapNode * lastNode = array[size-1];
 			array[0] = lastNode;
 			pos[root->v] = size-1;
 			pos[lastNode->v] = 0;
 			--size;
-			heapify(this,0);
+			heapify(0);
 			return root;
 		}
 		void decreaseKey(int v, int dist){
@@ -95,7 +95,7 @@ class MinHeap{
 			while( i >= 0 && array[i]->dist < array[(i-1)/2]->dist){
 				pos[array[i]->v] = (i-1)/2;
 				pos[array[(i-1)/2]->v] = i;
-				swapMinHeapNode(&array[i],  &array[(i - 1) / 2]);
+				swap(&array[i],  &array[(i - 1) / 2]);
 				i = (i-1)/2;
 			}
 		}
@@ -122,30 +122,30 @@ void Graph::addEdge(int node1, int node2, int weight)
 // from the source node given by the parameter src
 void Graph::dijkstra(int src)
 {
-  minHeap * PQ = new minHeap(num_nodes);
+  MinHeap * PQ = new MinHeap(num_nodes);
 	//int PQ[num_nodes]; // pair of vertex, distance from source
-  int visited[num_nodes];
+  int dist[num_nodes];
   
-for (int v = 0; v < V; ++v){
+for (int v = 0; v < num_nodes; ++v){
 	dist[v] = INT_MAX;
-	minHeap->array[v] = newMinHeapNode(v, dist[v]);
-	minHeap->pos[v] = v;
+	PQ->array[v] = newMinHeapNode(v, dist[v]);
+	PQ->pos[v] = v;
 }
   
   
   
-  while(!minHeap->isEmpty){
-	MinHeapNode * minHeapNode = minHeap.popMin();
-        int min_index = minHeapNode->v;
+  while(!PQ->isEmpty){
+	MinHeapNode * PQNode = PQ.popMin();
+        int min_index = PQNode->v;
   }
-minHeap->pos[src].v   = src;
-minHeap->pos[src].dist = 0;
+PQ->pos[src].v   = src;
+PQ->pos[src].dist = 0;
 dist[src] = 0;
 
-minHeap->size = num_nodes;
+PQ->size = num_nodes;
 
 
-decreaseKey(minHeap, src, dist[src]);
+decreaseKey(PQ, src, dist[src]);
     visited[min_index] = 1;
 
     // 'i' is used to get all adjacent vertices of a vertex
@@ -159,11 +159,11 @@ decreaseKey(minHeap, src, dist[src]);
 	  int weight = (*i).second;
 
 	  //  If there is shorted path to v through u.
-	  if (minHeap->isInMinHeap(v) && weight + dist[min_index] < dist[v]  PQ[v])
+	  if (PQ->isInMinHeap(v) && weight + dist[min_index] < dist[v]  PQ[v])
 	    {
 	      // Updating distance of v
 	      dist[v] = dist[min_index] + weight;
-	      minHeap->decreaseKey(v, dist[v]);
+	      PQ->decreaseKey(v, dist[v]);
 	    }
 	}
     }

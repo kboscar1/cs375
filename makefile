@@ -5,6 +5,8 @@ PQ: pq.o timer.o
 
 PQ.o: pq.cpp timer.cpp
 	g++ -c pq.cpp timer.cpp
+minHeap: minHeap.cpp timer.cpp
+	g++ -c minHeap.cpp timer.cpp
 
 clean:
 	rm -f *.o pq

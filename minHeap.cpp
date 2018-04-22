@@ -128,7 +128,7 @@ void Graph::dijkstra(int src)
   
 for (int v = 0; v < num_nodes; ++v){
 	dist[v] = INT_MAX;
-	PQ->array[v] = createNewMinHeapNode(v, dist[v]);
+	PQ->array[v] = PQ->createNewMinHeapNode(v, dist[v]);
 	PQ->pos[v] = v;
 }
     

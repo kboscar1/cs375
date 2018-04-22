@@ -128,24 +128,25 @@ void Graph::dijkstra(int src)
   
 for (int v = 0; v < num_nodes; ++v){
 	dist[v] = INT_MAX;
-	PQ->array[v] = newMinHeapNode(v, dist[v]);
+	PQ->array[v] = createNewMinHeapNode(v, dist[v]);
 	PQ->pos[v] = v;
 }
   
   
   
-  while(!PQ->isEmpty){
+ while(!PQ->isEmpty()){
 	MinHeapNode * PQNode = PQ.popMin();
         int min_index = PQNode->v;
-  }
-PQ->pos[src].v   = src;
-PQ->pos[src].dist = 0;
+  
+PQ->array[src].v   = src;
+PQ->array[src].dist = 0;
+ PQ->pos[src] = src;
 dist[src] = 0;
 
 PQ->size = num_nodes;
 
 
-decreaseKey(PQ, src, dist[src]);
+ PQ.decreaseKey(src, dist[src]);
     visited[min_index] = 1;
 
     // 'i' is used to get all adjacent vertices of a vertex
@@ -166,7 +167,7 @@ decreaseKey(PQ, src, dist[src]);
 	      PQ->decreaseKey(v, dist[v]);
 	    }
 	}
-    }
+ }
 
   // Print shortest distances stored in dist[]
   printf("vertex   Distance from Source\n");

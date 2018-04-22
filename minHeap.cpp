@@ -131,23 +131,20 @@ for (int v = 0; v < num_nodes; ++v){
 	PQ->array[v] = createNewMinHeapNode(v, dist[v]);
 	PQ->pos[v] = v;
 }
-  
-  
+    
   
  while(!PQ->isEmpty()){
-	MinHeapNode * PQNode = PQ.popMin();
+	MinHeapNode * PQNode = PQ->popMin();
         int min_index = PQNode->v;
   
-PQ->array[src].v   = src;
-PQ->array[src].dist = 0;
- PQ->pos[src] = src;
-dist[src] = 0;
+	PQ->array[src]->v   = src;
+	PQ->array[src]->dist = 0;
+	PQ->pos[src] = src;
+	dist[src] = 0;
 
-PQ->size = num_nodes;
+	PQ->size = num_nodes;
 
-
- PQ.decreaseKey(src, dist[src]);
-    visited[min_index] = 1;
+	PQ->decreaseKey(src, dist[src]);
 
     // 'i' is used to get all adjacent vertices of a vertex
     list< pair<int, int> >::iterator i;
@@ -160,7 +157,7 @@ PQ->size = num_nodes;
 	  int weight = (*i).second;
 
 	  //  If there is shorted path to v through u.
-	  if (PQ->isInMinHeap(v) && weight + dist[min_index] < dist[v]  PQ[v])
+	  if (PQ->isInMinHeap(v) && (weight + dist[min_index] < dist[v]))
 	    {
 	      // Updating distance of v
 	      dist[v] = dist[min_index] + weight;

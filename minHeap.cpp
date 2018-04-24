@@ -33,7 +33,7 @@ class MinHeapNode{
 	public:
 			MinHeapNode(int av, int adist){
 				v = av;
-				adist = dist;
+				dist = adist;
 			}
 			int v;
 			int dist;

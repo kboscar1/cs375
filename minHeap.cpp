@@ -157,7 +157,7 @@ for (int v = 0; v < num_nodes; ++v){
 	  int weight = (*i).second;
 
 	  //  If there is shorted path to v through u.
-	  if (PQ->isInMinHeap(v) && (weight + dist[min_index] < dist[v]))
+	  if (PQ->isInMinHeap(v) && dist[u] != INT_MAX && (weight + dist[min_index] < dist[v]))
 	    {
 	      // Updating distance of v
 	      dist[v] = dist[min_index] + weight;

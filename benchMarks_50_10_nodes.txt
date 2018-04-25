@@ -1,0 +1,68 @@
++-30% edges and weight, but run on same inputFile
+Input1k_50_10.txt
+pq:
+0 sec 32263 microseconds 
+0 sec 57517 microseconds 
+0 sec 57517 microseconds 
+minHeap:
+0 sec 13201 microseconds
+0 sec 12934 microseconds 
+0 sec 34116 microseconds 
+
+Input10k_50_10.txt 
+pq:
+0 sec 556261 microseconds 
+0 sec 635131 microseconds 
+0 sec 586080 microseconds 
+minHeap:
+0 sec 112863 microseconds 
+0 sec 255649 microseconds
+0 sec 77173 microseconds 
+
+Input100k_50_10.txt
+pq:
+52 sec 773250 microseconds
+53 sec 138837 microseconds 
+51 sec 829326 microseconds
+minHeap:
+0 sec 897574 microseconds
+0 sec 603030 microseconds
+0 sec 619494 microseconds
+
+Input1M_50_10.txt 
+pq: too long
+minHeap:
+11 sec 292699 microseconds 
+11 sec 740182 microseconds  
+11 sec 827688 microseconds 
+===========================================
+Input1k_10_10.tx
+pq:
+0 sec 19434 microseconds
+0 sec 18987 microseconds 
+0 sec 7561 microseconds 
+minHeap:
+0 sec 7725 microseconds
+0 sec 8271 microseconds
+0 sec 7271 microseconds
+
+Input10k_10_10.txt
+pq:
+1 sec 176412 microseconds 
+0 sec 897459 microseconds
+0 sec 648527 microseconds 
+minHeap:
+0 sec 77111 microseconds
+0 sec 158624 microseconds
+0 sec 94172 microseconds
+
+Input100k_10_10.txt
+pq:
+52 sec 791203 microseconds
+52 sec 672935 microseconds
+51 sec 269752 microseconds 
+minHeap:
+0 sec 374699 microseconds
+1 sec 259093 microseconds
+0 sec 827801 microseconds 
+

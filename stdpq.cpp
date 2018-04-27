@@ -48,35 +48,19 @@ void Graph::addEdge(int node1, int node2, int weight)
 // from the source node given by the parameter src
 void Graph::dijkstra(int src)
 {
-  int PQ[num_nodes]; // pair of vertex, distance from source
-  int visited[num_nodes];
+  priority_queue<node, vector<node>, greater<node>> pri_queue;
+  vector<int> dist(num_nodes, INT_MAX);
+  pri_queue.push(make_pair(0, src));
+  dist[src] = 0;  
   
-  for(int i = 0; i < num_nodes; i++){
-    PQ[i] = INT_MAX - 1;
-    visited[i] = 0;
-  }
-  
-  PQ[src] = 0;
-  
-  int k = 0;
-  while(k < num_nodes)
+  while(!pri_queue.empty())
   {
-    k++;
-
-    int min = INT_MAX;
-    int min_index;
-    for(int i = 0 ; i < num_nodes ; i++){
-      if((PQ[i] < min) && (visited[i] == 0)){
-	min = PQ[i];
-	min_index = i;
-      }
-    }
-
-    visited[min_index] = 1;
-
+    int u = pri_queue.top().second;
+    pri_queue.pop();
+    
     // 'i' is used to get all adjacent vertices of a vertex
     list< pair<int, int> >::iterator i;
-      for (i = adj[min_index].begin(); i != adj[min_index].end(); i++)
+      for (i = adj[u].begin(); i != adj[u].end(); i++)
 	{
 
 	  // Get vertex label and weight of current adjacent
@@ -85,10 +69,11 @@ void Graph::dijkstra(int src)
 	  int weight = (*i).second;
 
 	  //  If there is shorted path to v through u.
-	  if (PQ[v] > PQ[min_index] + weight)
+	  if (dist[v] > dist[u] + weight)
 	    {
 	      // Updating distance of v
-	      PQ[v] = PQ[min_index] + weight;
+	      dist[v] = dist[u] + weight;
+	      pri_queue.push(make_pair(dist[v], v));
 	    }
 	}
     }
@@ -96,7 +81,7 @@ void Graph::dijkstra(int src)
   // Print shortest distances stored in dist[]
   printf("vertex   Distance from Source\n");
     for (int i = 0; i < num_nodes; i++){
-    printf("%d \t\t %d\n", i, PQ[i]);
+    printf("%d \t\t %d\n", i,dist[i]);
   }
   
   return;

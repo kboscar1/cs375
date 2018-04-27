@@ -1,4 +1,19 @@
 +-30% edges and weight, but run on same inputFile
+Input_100_50_10.txt
+pq:
+0 sec 1210 microseconds 
+0 sec 1638 microseconds
+0 sec 1218 microseconds
+minHeap:
+0 sec 1064 microseconds
+0 sec 1299 microseconds
+0 sec 1438 microseconds 
+stdpq:
+0 sec 2778 microseconds
+0 sec 1608 microseconds
+0 sec 1619 microseconds
+
+
 Input1k_50_10.txt
 pq:
 0 sec 32263 microseconds 
@@ -8,6 +23,11 @@ minHeap:
 0 sec 13201 microseconds
 0 sec 12934 microseconds 
 0 sec 34116 microseconds 
+stdpq:
+0 sec 15778 microseconds
+0 sec 16055 microseconds 
+0 sec 14849 microseconds 
+
 
 Input10k_50_10.txt 
 pq:
@@ -18,6 +38,11 @@ minHeap:
 0 sec 112863 microseconds 
 0 sec 255649 microseconds
 0 sec 77173 microseconds 
+stdpq:
+0 sec 224572 microseconds
+0 sec 90396 microseconds
+0 sec 90564 microseconds
+
 
 Input100k_50_10.txt
 pq:
@@ -28,6 +53,10 @@ minHeap:
 0 sec 897574 microseconds
 0 sec 603030 microseconds
 0 sec 619494 microseconds
+stdpq:
+1 sec 14586 microseconds
+1 sec 454478 microseconds
+1 sec 207459 microseconds
 
 Input1M_50_10.txt 
 pq: too long
@@ -35,7 +64,23 @@ minHeap:
 11 sec 292699 microseconds 
 11 sec 740182 microseconds  
 11 sec 827688 microseconds 
+
 ===========================================
+Input100_10_10.txt
+pq:
+0 sec 368 microseconds
+0 sec 911 microseconds
+0 sec 1005 microseconds
+minHeap:
+0 sec 670 microseconds 
+0 sec 808 microseconds
+0 sec 805 microseconds
+stdpq:
+0 sec 1016 microseconds
+0 sec 973 microseconds
+0 sec 999 microseconds
+
+
 Input1k_10_10.tx
 pq:
 0 sec 19434 microseconds
@@ -45,6 +90,10 @@ minHeap:
 0 sec 7725 microseconds
 0 sec 8271 microseconds
 0 sec 7271 microseconds
+stdpq:
+0 sec 22528 microseconds
+0 sec 18959 microseconds
+0 sec 4070 microseconds
 
 Input10k_10_10.txt
 pq:
@@ -55,6 +104,10 @@ minHeap:
 0 sec 77111 microseconds
 0 sec 158624 microseconds
 0 sec 94172 microseconds
+stdpq:
+0 sec 42936 microseconds
+0 sec 132958 microseconds
+0 sec 188395 microseconds
 
 Input100k_10_10.txt
 pq:
@@ -65,4 +118,8 @@ minHeap:
 0 sec 374699 microseconds
 1 sec 259093 microseconds
 0 sec 827801 microseconds 
+stdpq:
+0 sec 498133 microseconds
+0 sec 584652 microseconds
+0 sec 489019 microseconds
 

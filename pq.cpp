@@ -95,7 +95,7 @@ void Graph::dijkstra(int src)
 
   // Print shortest distances stored in dist[]
   printf("vertex   Distance from Source\n");
-  for (int i = 0; i < num_nodes; i++){
+    for (int i = 0; i < num_nodes; i++){
     printf("%d \t\t %d\n", i, PQ[i]);
   }
   
@@ -139,7 +139,7 @@ int main(int argc, char ** argv)
 
   timer_start();
   g.dijkstra(0);
-
+  cout << "test" << std::flush;
 
   vector<time_t> time = timer_end();
   cout << to_string(time[0]) << " sec " << to_string(time[1]) << " microseconds " << endl;

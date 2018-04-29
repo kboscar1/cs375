@@ -4,14 +4,35 @@ pq:
 0 sec 1210 microseconds 
 0 sec 1638 microseconds
 0 sec 1218 microseconds
+*1355
 minHeap:
 0 sec 1064 microseconds
 0 sec 1299 microseconds
 0 sec 1438 microseconds 
+*1267
 stdpq:
 0 sec 2778 microseconds
 0 sec 1608 microseconds
 0 sec 1619 microseconds
+*6005
+
+
+Input_500_50_10.txt
+pq:
+0 sec 8528 microseconds
+0 sec 3325 microseconds 
+0 sec 7981 microseconds
+*6611
+minHeap:
+0 sec 5773 microseconds
+0 sec 7449 microseconds
+0 sec 6257 microseconds
+*6493
+stdpq:
+0 sec 3319 microseconds 
+0 sec 6930 microseconds
+0 sec 3397 microseconds
+*4548
 
 
 Input1k_50_10.txt
@@ -19,107 +40,264 @@ pq:
 0 sec 32263 microseconds 
 0 sec 57517 microseconds 
 0 sec 57517 microseconds 
+*49099
 minHeap:
 0 sec 13201 microseconds
 0 sec 12934 microseconds 
 0 sec 34116 microseconds 
+*20083
 stdpq:
 0 sec 15778 microseconds
 0 sec 16055 microseconds 
 0 sec 14849 microseconds 
+*15560
 
+
+Input_5k_50_10.txt
+pq:
+0 sec 155927 microseconds
+0 sec 258581 microseconds
+0 sec 257838 microseconds
+*224115
+minHeap:
+0 sec 64909 microseconds
+0 sec 59389 microseconds
+0 sec 59287 microseconds
+*61195
+stdpq:
+0 sec 70348 microseconds
+0 sec 89347 microseconds
+0 sec 172675 microseconds
+*110790 microseconds
 
 Input10k_50_10.txt 
 pq:
 0 sec 556261 microseconds 
 0 sec 635131 microseconds 
-0 sec 586080 microseconds 
+0 sec 586080 microseconds
+*592490 
 minHeap:
 0 sec 112863 microseconds 
 0 sec 255649 microseconds
-0 sec 77173 microseconds 
+0 sec 77173 microseconds
+* 148561
 stdpq:
 0 sec 224572 microseconds
 0 sec 90396 microseconds
 0 sec 90564 microseconds
+*135177
 
+Input_50k_50_10.txt
+pq:
+13 sec 119073 microseconds
+13 sec 474902 microseconds
+13 sec 227565 microseconds
+*13273846
+minHeap:
+0 sec 303772 microseconds
+0 sec 312954 microseconds
+0 sec 362716 microseconds
+*326480
+stdpq:
+0 sec 434891 microseconds
+0 sec 402809 microseconds
+0 sec 403375 microseconds
+*413691
+
+Input75k_50_10.txt
+pq:
+29 sec 933988 microseconds 
+31 sec 620909 microseconds
+30 sec 183050 
+*30579315
+minHeap:
+0 sec 501242 microseconds
+0 sec 462913 microseconds
+0 sec 602219 microseconds
+*522124
+stdpq:
+0 sec 690124 microseconds
+0 sec 705701 microseconds
+0 sec 643906 microseconds
+*679910
 
 Input100k_50_10.txt
 pq:
 52 sec 773250 microseconds
 53 sec 138837 microseconds 
 51 sec 829326 microseconds
+*52580471
 minHeap:
 0 sec 897574 microseconds
 0 sec 603030 microseconds
 0 sec 619494 microseconds
+*706699
 stdpq:
 1 sec 14586 microseconds
 1 sec 454478 microseconds
 1 sec 207459 microseconds
+*1225507
 
 Input1M_50_10.txt 
 pq: too long
 minHeap:
 11 sec 292699 microseconds 
 11 sec 740182 microseconds  
-11 sec 827688 microseconds 
+11 sec 827688 microseconds
+*11620189
 
 ===========================================
+Input50_10_10.txt
+pq:
+0 sec 182 microseconds
+0 sec 449 microseconds
+0 sec 438 
+*356
+minHeap:
+0 sec 664 microseconds
+0 sec 187 microseconds
+0 sec 299 microseconds
+*383
+stdpq:
+0 sec 558 microseconds
+0 sec 508 microseconds
+0 sec 698 microseconds
+*588
+
 Input100_10_10.txt
 pq:
 0 sec 368 microseconds
 0 sec 911 microseconds
 0 sec 1005 microseconds
+*761
 minHeap:
 0 sec 670 microseconds 
 0 sec 808 microseconds
 0 sec 805 microseconds
+*761
 stdpq:
 0 sec 1016 microseconds
 0 sec 973 microseconds
 0 sec 999 microseconds
+*996
 
+Input500_10_10.txt
+pq:
+0 sec 6424 microseconds
+0 sec 8084 microseconds
+0 sec 2493 microseconds
+*5667
+minHeap:
+0 sec 3353 microseconds
+0 sec 3529 microseconds
+0 sec 1494 microseconds
+*2792
+stdpq:
+0 sec 4998 microseconds
+0 sec 4415 microseconds
+0 sec 4567 microseconds
+*4660
 
 Input1k_10_10.tx
 pq:
 0 sec 19434 microseconds
 0 sec 18987 microseconds 
-0 sec 7561 microseconds 
+0 sec 7561 microseconds
+* 15327
 minHeap:
 0 sec 7725 microseconds
 0 sec 8271 microseconds
 0 sec 7271 microseconds
+*7755
 stdpq:
 0 sec 22528 microseconds
 0 sec 18959 microseconds
 0 sec 4070 microseconds
+*15185
+
+Input5k_10_10.txt
+pq:
+0 sec 156320 microseconds
+0 sec 253719 microseconds
+0 sec 346196 microseconds
+*252078
+minHeap:
+0 sec 57707 microseconds
+0 sec 41845 microseconds
+0 sec 18384 microseconds
+*39312
+stdpq:
+0 sec 51929 microseconds
+0 sec 136162 microseconds
+0 sec 25071 microseconds
+*71054
 
 Input10k_10_10.txt
 pq:
 1 sec 176412 microseconds 
 0 sec 897459 microseconds
 0 sec 648527 microseconds 
+*907466
 minHeap:
 0 sec 77111 microseconds
 0 sec 158624 microseconds
 0 sec 94172 microseconds
+*109969
 stdpq:
 0 sec 42936 microseconds
 0 sec 132958 microseconds
 0 sec 188395 microseconds
+*121429
+
+Input50k_10_10.txt
+pq:
+14 sec 460883 microseconds
+13 sec 539967 microseconds 
+13 sec 795018 microseconds
+*13931956
+
+minHeap:
+0 sec 418453 microseconds
+0 sec 233945 microseconds
+0 sec 208517 microseconds
+*286971
+stdpq:
+0 sec 703192 microseconds
+0 sec 272442 microseconds
+0 sec 261763 microseconds
+* 412465
+
+Input75k_10_10.txt
+pq:
+30 sec 502406 microseconds
+30 sec 406530 microseconds 
+30 sec 138804 microseconds
+*30349246
+minHeap:
+0 sec 345713 microseconds
+0 sec 283123 microseconds
+0 sec 320911 microseconds
+*316582
+stdpq:
+0 sec 514939 microseconds
+0 sec 407717 microseconds
+0 sec 709527 microseconds
+*544061
 
 Input100k_10_10.txt
 pq:
 52 sec 791203 microseconds
 52 sec 672935 microseconds
 51 sec 269752 microseconds 
+*52244630
 minHeap:
 0 sec 374699 microseconds
 1 sec 259093 microseconds
-0 sec 827801 microseconds 
+0 sec 827801 microseconds
+*820531
 stdpq:
 0 sec 498133 microseconds
 0 sec 584652 microseconds
 0 sec 489019 microseconds
+*523934
 

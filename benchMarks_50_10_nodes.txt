@@ -295,6 +295,12 @@ minHeap:
 1 sec 259093 microseconds
 0 sec 827801 microseconds
 *820531
+(NEW)
+518270
+397644
+521486
+*479133
+
 stdpq:
 0 sec 498133 microseconds
 0 sec 584652 microseconds

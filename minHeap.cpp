@@ -167,10 +167,10 @@ for (int v = 0; v < num_nodes; ++v){
  }
 
   // Print shortest distances stored in dist[]
-  printf("vertex   Distance from Source\n");
+ /*  printf("vertex   Distance from Source\n");
   for (int i = 0; i < num_nodes; i++){
     printf("%d \t\t %d\n", i, dist[i]);
-  }
+    }*/
   
   return;
 }

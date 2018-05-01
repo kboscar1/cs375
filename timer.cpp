@@ -9,9 +9,9 @@
 
 using namespace std;
 
-struct timeval tvStart;
-struct timeval tvEnd;
-struct timeval tvDiff;
+struct timeval tvStart; // struct to represent the starting time
+struct timeval tvEnd; //struct to represent the ending time
+struct timeval tvDiff; //struct to represent the time difference
 
 /* I do not use this, it's from one of my past programs but it prints the time difference formatted correctly. It receives a char* the file name to print to, and the time difference struct which it prints the seconds and microseconds from.
  */

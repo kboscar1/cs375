@@ -38,6 +38,8 @@ Graph::Graph(int num_nodes)
   adj = new list<node> [num_nodes]; // num_nodes lists that hold nodes/edges
 }
 
+
+//Adds an edge to the graph given the source vertex, destination vertex, and weight of edge
 void Graph::addEdge(int node1, int node2, int weight)
 {
   adj[node1].push_back(make_pair(node2, weight));
@@ -49,22 +51,22 @@ void Graph::addEdge(int node1, int node2, int weight)
 void Graph::dijkstra(int src)
 {
   int PQ[num_nodes]; // pair of vertex, distance from source
-  int visited[num_nodes];
+  int visited[num_nodes]; // array to indicate if nodes have been visited yet
   
   for(int i = 0; i < num_nodes; i++){
     PQ[i] = INT_MAX - 1;
     visited[i] = 0;
   }
   
-  PQ[src] = 0;
+  PQ[src] = 0; // distance to source is 0
   
-  int k = 0;
+  int k = 0; // counter variable for while loop
   while(k < num_nodes)
   {
     k++;
 
-    int min = INT_MAX;
-    int min_index;
+    int min = INT_MAX; // current minimum value, set to INT_MAX so any number is lower
+    int min_index; // index of the node with the minimum index so far
     for(int i = 0 ; i < num_nodes ; i++){
       if((PQ[i] < min) && (visited[i] == 0)){
 	min = PQ[i];
@@ -81,8 +83,8 @@ void Graph::dijkstra(int src)
 
 	  // Get vertex label and weight of current adjacent
 	  // of u.
-	  int v = (*i).first;
-	  int weight = (*i).second;
+	  int v = (*i).first; // the vertex number of the adjacent node
+	  int weight = (*i).second; // the weight number of the adjacent node
 
 	  //  If there is shorted path to v through u.
 	  if (PQ[v] > PQ[min_index] + weight)
@@ -97,7 +99,7 @@ void Graph::dijkstra(int src)
   printf("vertex   Distance from Source\n");
     for (int i = 0; i < num_nodes; i++){
     printf("%d \t\t %d\n", i, PQ[i]);
-  }
+    }
   
   return;
 }
@@ -110,22 +112,22 @@ int main(int argc, char ** argv)
     exit(1);
   }
 
-  int v1, v2, w;
-  int num_nodes = 0;
-  bool first_line = true;
-  string line;
+  int v1, v2, w; // dummy  nodes (v1, v2) to read from file, dummy weight (w) to read from file
+  int num_nodes = 0; // number of nodes in file
+  bool first_line = true; // first line of input array (formatted seperately)
+  string line; // dummy line to use in getline
   
-  ifstream input(argv[1]);
-  ifstream file;
+  ifstream input(argv[1]); // creates stream from the file
+  ifstream file; // creates stream to open file with
   file.open(argv[1]);
 
   input >> num_nodes;
-  Graph g(num_nodes);
+  Graph g(num_nodes); // creates graph to use 
 
   input.close();
 
   while(getline(file, line)){
-    istringstream ls(line);
+    istringstream ls(line); // makes line into a string stream to split it
 
     if(first_line == true){
       first_line = false;
@@ -137,11 +139,10 @@ int main(int argc, char ** argv)
 
   file.close();
 
-  timer_start();
+  timer_start(); // starts timer function
   g.dijkstra(0);
-  cout << "test" << std::flush;
 
-  vector<time_t> time = timer_end();
+  vector<time_t> time = timer_end(); //ends timer function and gets vector of times
   cout << to_string(time[0]) << " sec " << to_string(time[1]) << " microseconds " << endl;
   
   return 0;

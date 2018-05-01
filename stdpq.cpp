@@ -130,12 +130,6 @@ int main(int argc, char ** argv)
   timer_start();
   //runs algorithm
   g.dijkstra(0);
-<<<<<<< HEAD
-
-=======
-  cout << "test" << std::flush;
-//ends timer
->>>>>>> f81aab7e35caadf7f40c12f6ad041ad1b9b5ca59
   vector<time_t> time = timer_end();
   //prints time
   cout << to_string(time[0]) << " sec " << to_string(time[1]) << " microseconds " << endl;

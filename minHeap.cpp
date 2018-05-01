@@ -29,37 +29,48 @@ public:
 
   void dijkstra(int s); // dijkstra's algorithm
 };
+//Node for the minHeap
 class MinHeapNode{
 	public:
 			MinHeapNode(int av, int adist){
 				v = av;
 				dist = adist;
 			}
+			//id of node
 			int v;
+			//distance from source
 			int dist;
 };
-
+//MinHeap is used to maintain order of MinHeapNodes and allows for extraction of smallest value
 class MinHeap{
 	public:
+		//current amount of nodes in minHeap
 		int size;
+		//maximum amount of nodes in minHeap
 		int maxSize;
+		//position in minHeap
 		int * pos;
+		//array of minHeapNodes to keep track of
 		MinHeapNode ** array;
+		//constructor for minheap
 		MinHeap(int aMaxSize){
 			maxSize = aMaxSize;
 			size = 0;
 			pos = (int *)malloc(maxSize * sizeof(int));
 			array = (MinHeapNode **)malloc(maxSize * sizeof(struct MinHeapNode*));
 		}
+		//calls minHeapNode constructor within this class
 		MinHeapNode * createNewMinHeapNode(int v, int dist){
 			MinHeapNode * minHeapNode = new MinHeapNode(v,dist);
 			return minHeapNode;
 		}	
+		//switches the location of two nodes within the minHeap used by heapify
 		void swap(MinHeapNode ** n1, MinHeapNode ** n2){
 			MinHeapNode * temp = *n1;
 			*n1 = *n2;
 			*n2 = temp;
 		}
+		//sifts the value at the top of the minHeap in order to maintain a min value at top
 		void heapify(int index){
 			int smallest = index;
 			int left = (2*index) + 1;
@@ -75,9 +86,11 @@ class MinHeap{
 				heapify(smallest);
 			}
 		}
+		//returns true if there are no minHeapNodes in the minHeap
 		bool isEmpty(){
 			return size == 0;
 		}
+		//removes and returns the smallest minHeap node in minHeap
 		MinHeapNode * popMin(){
 		  if(isEmpty()) return NULL;
 			MinHeapNode * root = array[0];
@@ -89,6 +102,7 @@ class MinHeap{
 			heapify(0);
 			return root;
 		}
+		//swaps the node to be in the correct position after the min distance of a minHeapNode is changed
 		void decreaseKey(int v, int dist){
 			int i = pos[v];
 			array[i]->dist = dist;
@@ -99,6 +113,7 @@ class MinHeap{
 				i = (i-1)/2;
 			}
 		}
+		//finds out if the position is out of bound for the minHeap
 		bool isInMinHeap(int v){
 			return pos[v] < size;
 		}
@@ -111,7 +126,7 @@ Graph::Graph(int num_nodes)
   this->num_nodes = num_nodes;
   adj = new list<node> [num_nodes]; // num_nodes lists that hold nodes/edges
 }
-
+//adds an edge to connect one node to another and applies weight
 void Graph::addEdge(int node1, int node2, int weight)
 {
   adj[node1].push_back(make_pair(node2, weight));
@@ -209,13 +224,15 @@ int main(int argc, char ** argv)
   }
 
   file.close();
-
+//starts timer
   timer_start();
+  //starts algorithm
   g.dijkstra(0);
 
-
+//ends timer
   vector<time_t> time = timer_end();
+  //prints time
   cout << to_string(time[0]) << " sec " << to_string(time[1]) << " microseconds " << endl;
-  
+  //returns 0
   return 0;
 }

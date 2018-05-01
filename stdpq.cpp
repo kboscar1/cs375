@@ -37,7 +37,7 @@ Graph::Graph(int num_nodes)
   this->num_nodes = num_nodes;
   adj = new list<node> [num_nodes]; // num_nodes lists that hold nodes/edges
 }
-
+//connects two nodes by an edge with a give weight
 void Graph::addEdge(int node1, int node2, int weight)
 {
   adj[node1].push_back(make_pair(node2, weight));
@@ -48,6 +48,7 @@ void Graph::addEdge(int node1, int node2, int weight)
 // from the source node given by the parameter src
 void Graph::dijkstra(int src)
 {
+  //queue used to determine order picked
   priority_queue<node, vector<node>, greater<node>> pri_queue;
   vector<int> dist(num_nodes, INT_MAX);
   pri_queue.push(make_pair(0, src));
@@ -94,12 +95,15 @@ int main(int argc, char ** argv)
     cout << "usage: d1 <input file>" << endl;
     exit(1);
   }
-
+//v1 & v2 are vertices and w is the weight between them
   int v1, v2, w;
+  //current amount of nodes
   int num_nodes = 0;
+  //bool to tell if first line
   bool first_line = true;
+  //used to read a line from file
   string line;
-  
+  //argv[1] is a filename
   ifstream input(argv[1]);
   ifstream file;
   file.open(argv[1]);
@@ -108,25 +112,28 @@ int main(int argc, char ** argv)
   Graph g(num_nodes);
 
   input.close();
-
+//reads each line to populate graph
   while(getline(file, line)){
     istringstream ls(line);
-
+//first line is different than other lines
     if(first_line == true){
       first_line = false;
     } else {
       ls >> v1 >> v2 >> w;
+      //adds vertices and weights to graph
       g.addEdge(v1, v2, w);
     }
   }
 
   file.close();
-
+//starts timer
   timer_start();
+  //runs algorithm
   g.dijkstra(0);
   cout << "test" << std::flush;
-
+//ends timer
   vector<time_t> time = timer_end();
+  //prints time
   cout << to_string(time[0]) << " sec " << to_string(time[1]) << " microseconds " << endl;
   
   return 0;
